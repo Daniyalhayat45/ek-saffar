@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+@import "@fontsource/fraunces/400.css";
+@import "@fontsource/fraunces/500.css";
+@import "@fontsource/fraunces/600.css";
+@import "@fontsource/fraunces/600-italic.css";
+@import "@fontsource/fraunces/700.css";
+@import "@fontsource/fraunces/900.css";
+@import "@fontsource/manrope/400.css";
+@import "@fontsource/manrope/500.css";
+@import "@fontsource/manrope/600.css";
+@import "@fontsource/manrope/700.css";
+@import "@fontsource/manrope/800.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+
+:root {
+  /* Brand — derived from the Ek Safar mark */
+  --color-summit-orange: #f4831e;
+  --color-summit-orange-deep: #d9690a;
+  --color-basecamp: #17130f;      /* near-black, warm charcoal from logo body */
+  --color-basecamp-2: #241d16;
+  --color-basecamp-3: #362b1f;
+  --color-parchment: #faf6ee;     /* warm off-white, used sparingly for light sections */
+  --color-parchment-dim: #f0e9da;
+  --color-mist: #8a8175;          /* muted warm gray for secondary text on light */
+  --color-fog: #b9aa8f;
+
+  --background: var(--color-basecamp);
+  --foreground: var(--color-parchment);
+
+  --radius: 0.625rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-orange: var(--color-summit-orange);
+  --color-orange-deep: var(--color-summit-orange-deep);
+  --color-basecamp: var(--color-basecamp);
+  --color-basecamp-2: var(--color-basecamp-2);
+  --color-basecamp-3: var(--color-basecamp-3);
+  --color-parchment: var(--color-parchment);
+  --color-parchment-dim: var(--color-parchment-dim);
+  --color-mist: var(--color-mist);
+  --color-fog: var(--color-fog);
+
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-sans: "Manrope", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", monospace;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 6px);
+
+  --animate-marquee: marquee 32s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}
+
+* {
+  border-color: color-mix(in oklab, var(--color-parchment) 12%, transparent);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Contour / topographic texture used behind hero + section dividers */
+.contour-field {
+  background-image:
+    repeating-radial-gradient(circle at 20% 30%, transparent 0, transparent 38px, color-mix(in oklab, var(--color-orange) 14%, transparent) 39px, transparent 40px),
+    repeating-radial-gradient(circle at 85% 70%, transparent 0, transparent 52px, color-mix(in oklab, var(--color-parchment) 6%, transparent) 53px, transparent 54px);
+}
+
+/* Boarding-pass signature: dashed perforation + notch cut */
+.perforated {
+  position: relative;
+}
+.perforated::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-left: 2px dashed color-mix(in oklab, var(--color-basecamp) 18%, transparent);
+  left: var(--perf-left, 72%);
+  pointer-events: none;
+}
+.punch {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: var(--color-basecamp);
+  left: calc(var(--perf-left, 72%) - 10px);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background: var(--color-orange);
+  color: var(--color-basecamp);
+}
+
+.input-field {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid color-mix(in oklab, var(--color-parchment) 15%, transparent);
+  background: var(--color-basecamp);
+  color: var(--color-parchment);
+  padding: 0.7rem 1rem;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.input-field::placeholder {
+  color: var(--color-fog);
+}
+.input-field:focus {
+  border-color: var(--color-orange);
+}
+
