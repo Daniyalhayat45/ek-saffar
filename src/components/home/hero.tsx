@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { destinations } from "@/data/destinations";
+import Link from "next/link";
 
 export function Hero() {
   const router = useRouter();
@@ -63,10 +64,10 @@ export function Hero() {
             className="mt-9 flex flex-wrap items-center gap-4"
           >
             <Button size="lg" asChild>
-              <a href="/packages">Explore Packages</a>
+              <Link href="/packages">Explore Packages</Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <a href="/booking">Plan My Trip</a>
+              <Link href="/booking">Plan My Trip</Link>
             </Button>
           </motion.div>
 

@@ -1,6 +1,7 @@
 import { MapPin, Clock } from "lucide-react";
 import { PageHeader } from "@/components/shared/page-header";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const openings = [
   { title: "Travel Consultant", type: "Full-time", location: "Karachi", dept: "Sales" },
@@ -40,7 +41,7 @@ export default function CareersPage() {
                   </div>
                 </div>
                 <Button asChild size="sm">
-                  <a href="/contact">Apply Now</a>
+                  <Link href="/contact">Apply Now</Link>
                 </Button>
               </div>
             ))}
@@ -50,7 +51,7 @@ export default function CareersPage() {
             <h3 className="font-display text-xl font-semibold text-parchment">Don&apos;t see the right role?</h3>
             <p className="mt-2 text-sm text-fog">Send your CV anyway — we keep good applications on file for future openings.</p>
             <Button asChild className="mt-5">
-              <a href="/contact">Send Your CV</a>
+              <Link href="/contact">Send Your CV</Link>
             </Button>
           </div>
         </div>

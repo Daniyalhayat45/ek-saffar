@@ -1,6 +1,7 @@
 import { Check } from "lucide-react";
 import { PageHeader } from "@/components/shared/page-header";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const tiers = [
   {
@@ -48,7 +49,7 @@ export default function HajjPage() {
                   ))}
                 </ul>
                 <Button asChild className="mt-6 w-full" variant={tier.highlighted ? "primary" : "outline"}>
-                  <a href="/booking">Register Interest</a>
+                  <Link href="/booking">Register Interest</Link>
                 </Button>
               </div>
             ))}

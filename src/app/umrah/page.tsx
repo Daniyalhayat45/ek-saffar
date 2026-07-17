@@ -1,6 +1,7 @@
 import { Check } from "lucide-react";
 import { PageHeader } from "@/components/shared/page-header";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const tiers = [
   {
@@ -62,7 +63,7 @@ export default function UmrahPage() {
                   ))}
                 </ul>
                 <Button asChild className="mt-6 w-full" variant={tier.highlighted ? "primary" : "outline"}>
-                  <a href="/booking">Book This Package</a>
+                  <Link href="/booking">Book This Package</Link>
                 </Button>
               </div>
             ))}
@@ -73,7 +74,7 @@ export default function UmrahPage() {
             <p className="mt-2 text-sm text-fog">{familyTiers[0].body}</p>
             <div className="mt-4 font-display text-2xl font-semibold text-orange">From PKR {familyTiers[0].price}</div>
             <Button asChild className="mt-6">
-              <a href="/booking">Plan a Family Umrah</a>
+              <Link href="/booking">Plan a Family Umrah</Link>
             </Button>
           </div>
 

@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export function NewsletterCta() {
   return (
@@ -13,10 +14,10 @@ export function NewsletterCta() {
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Button size="lg" asChild>
-              <a href="/booking">Start Planning</a>
+              <Link href="/booking">Start Planning</Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <a href="/contact">Talk to a Consultant</a>
+              <Link href="/contact">Talk to a Consultant</Link>
             </Button>
           </div>
         </div>

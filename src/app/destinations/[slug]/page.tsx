@@ -5,6 +5,7 @@ import { destinations, getDestinationBySlug } from "@/data/destinations";
 import { packages } from "@/data/packages";
 import { PackageCard } from "@/components/shared/package-card";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export function generateStaticParams() {
   return destinations.map((d) => ({ slug: d.slug }));
@@ -55,7 +56,7 @@ export default async function DestinationDetailPage({ params }: { params: Promis
               Packages to {destination.name}
             </h2>
             <Button asChild>
-              <a href="/booking">Enquire About This Trip</a>
+              <Link href="/booking">Enquire About This Trip</Link>
             </Button>
           </div>
 

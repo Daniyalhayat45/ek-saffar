@@ -2,6 +2,7 @@ import { PageHeader } from "@/components/shared/page-header";
 import { PackageCard } from "@/components/shared/package-card";
 import { Button } from "@/components/ui/button";
 import { TourPackage } from "@/types/travel";
+import Link from "next/link";
 
 export function CategoryPackagesTemplate({
   eyebrow,
@@ -31,7 +32,7 @@ export function CategoryPackagesTemplate({
             <div className="rounded-3xl border border-parchment/10 bg-basecamp-2 p-12 text-center">
               <p className="text-fog">No fixed packages listed yet — tell us your dates and group size and we&apos;ll build one.</p>
               <Button asChild className="mt-6">
-                <a href="/booking">{ctaLabel}</a>
+                <Link href="/booking">{ctaLabel}</Link>
               </Button>
             </div>
           )}

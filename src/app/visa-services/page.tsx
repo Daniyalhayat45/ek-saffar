@@ -6,6 +6,7 @@ import * as Accordion from "@radix-ui/react-accordion";
 import { ChevronDown } from "lucide-react";
 import { PageHeader } from "@/components/shared/page-header";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const countries = [
   { name: "UAE (Dubai)", processing: "3–5 working days", price: "18,500", docs: ["Passport (6 months validity)", "Passport-size photo", "Bank statement (last 3 months)", "Confirmed return ticket"] },
@@ -66,7 +67,7 @@ export default function VisaServicesPage() {
                       ))}
                     </ul>
                     <Button asChild size="sm" className="mt-4">
-                      <a href="/booking">Start This Application</a>
+                      <Link href="/booking">Start This Application</Link>
                     </Button>
                   </div>
                 )}
@@ -93,7 +94,7 @@ export default function VisaServicesPage() {
             <h3 className="font-display text-xl font-semibold text-parchment">Not sure which visa you need?</h3>
             <p className="mt-2 text-sm text-fog">Send us your destination and travel dates — we&apos;ll confirm requirements within a few hours.</p>
             <Button asChild className="mt-5">
-              <a href="/contact">Ask a Question</a>
+              <Link href="/contact">Ask a Question</Link>
             </Button>
           </div>
         </div>
