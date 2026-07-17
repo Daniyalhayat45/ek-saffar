@@ -2,6 +2,9 @@ import { Destination } from "@/types/travel";
 
 export const destinations: Destination[] = [
   {
+    id: 1,
+  createdAt: new Date(),
+
     slug: "hunza-valley",
     name: "Hunza Valley",
     country: "Pakistan",
@@ -16,6 +19,8 @@ export const destinations: Destination[] = [
     reviewCount: 214,
   },
   {
+    id: 2,
+  createdAt: new Date(),
     slug: "skardu",
     name: "Skardu",
     country: "Pakistan",
@@ -30,6 +35,8 @@ export const destinations: Destination[] = [
     reviewCount: 176,
   },
   {
+    id: 3,
+  createdAt: new Date(),
     slug: "maldives",
     name: "Maldives",
     country: "Maldives",
@@ -44,6 +51,8 @@ export const destinations: Destination[] = [
     reviewCount: 302,
   },
   {
+    id: 4,
+  createdAt: new Date(),
     slug: "istanbul",
     name: "Istanbul",
     country: "Turkey",
@@ -58,6 +67,8 @@ export const destinations: Destination[] = [
     reviewCount: 411,
   },
   {
+    id: 5,
+  createdAt: new Date(),
     slug: "bali",
     name: "Bali",
     country: "Indonesia",
@@ -72,6 +83,8 @@ export const destinations: Destination[] = [
     reviewCount: 268,
   },
   {
+    id: 6,
+  createdAt: new Date(),
     slug: "makkah",
     name: "Makkah",
     country: "Saudi Arabia",
@@ -86,6 +99,8 @@ export const destinations: Destination[] = [
     reviewCount: 587,
   },
   {
+    id: 7,
+  createdAt: new Date(),
     slug: "madinah",
     name: "Madinah",
     country: "Saudi Arabia",
@@ -100,6 +115,8 @@ export const destinations: Destination[] = [
     reviewCount: 543,
   },
   {
+    id: 8,
+  createdAt: new Date(),
     slug: "paris",
     name: "Paris",
     country: "France",
@@ -114,6 +131,8 @@ export const destinations: Destination[] = [
     reviewCount: 198,
   },
   {
+    id: 9,
+  createdAt: new Date(),
     slug: "swat-valley",
     name: "Swat Valley",
     country: "Pakistan",
@@ -128,6 +147,8 @@ export const destinations: Destination[] = [
     reviewCount: 154,
   },
   {
+    id: 10,
+  createdAt: new Date(),
     slug: "dubai",
     name: "Dubai",
     country: "UAE",
@@ -142,6 +163,8 @@ export const destinations: Destination[] = [
     reviewCount: 389,
   },
   {
+    id: 11,
+  createdAt: new Date(),
     slug: "thailand-phuket",
     name: "Phuket",
     country: "Thailand",
@@ -156,6 +179,8 @@ export const destinations: Destination[] = [
     reviewCount: 231,
   },
   {
+    id: 12,
+  createdAt: new Date(),
     slug: "cappadocia",
     name: "Cappadocia",
     country: "Turkey",
@@ -170,6 +195,8 @@ export const destinations: Destination[] = [
     reviewCount: 276,
   },
   {
+    id: 13,
+  createdAt: new Date(),
     slug: "kashmir",
     name: "Azad Kashmir",
     country: "Pakistan",
@@ -184,6 +211,8 @@ export const destinations: Destination[] = [
     reviewCount: 142,
   },
   {
+    id: 14,
+  createdAt: new Date(),
     slug: "santorini",
     name: "Santorini",
     country: "Greece",
@@ -198,6 +227,8 @@ export const destinations: Destination[] = [
     reviewCount: 167,
   },
   {
+    id: 15,
+  createdAt: new Date(),
     slug: "malaysia-kl",
     name: "Kuala Lumpur",
     country: "Malaysia",
@@ -212,6 +243,8 @@ export const destinations: Destination[] = [
     reviewCount: 203,
   },
   {
+    id: 16,
+  createdAt: new Date(),
     slug: "muscat",
     name: "Muscat",
     country: "Oman",
