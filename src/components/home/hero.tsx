@@ -8,7 +8,11 @@ import { Button } from "@/components/ui/button";
 import { Destination } from "@/types/travel";
 import Link from "next/link";
 
-export function Hero({ destinations }: { destinations: Destination[] }) {
+export function Hero({
+  destinations = [],
+}: {
+  destinations?: Destination[];
+}) {
   const router = useRouter();
   const [query, setQuery] = useState("");
 
