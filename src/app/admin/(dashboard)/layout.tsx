@@ -1,11 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
-import { LayoutDashboard, ClipboardList, Mail, Send, ExternalLink } from "lucide-react";
+import { LayoutDashboard, ClipboardList, Mail, Send, ExternalLink, Package, MapPin } from "lucide-react";
 import { siteConfig } from "@/constants/site";
 import { SignOutButton } from "@/components/admin/sign-out-button";
 
 const links = [
   { href: "/admin", label: "Overview", icon: LayoutDashboard },
+  { href: "/admin/packages", label: "Packages", icon: Package },
+  { href: "/admin/destinations", label: "Destinations", icon: MapPin },
   { href: "/admin/bookings", label: "Bookings", icon: ClipboardList },
   { href: "/admin/messages", label: "Messages", icon: Mail },
   { href: "/admin/newsletter", label: "Newsletter", icon: Send },

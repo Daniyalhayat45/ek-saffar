@@ -34,12 +34,6 @@ export const mainNav: NavItem[] = [
       { label: "Honeymoon", href: "/honeymoon", description: "Romantic escapes for two" },
       { label: "Group Tours", href: "/group-tours", description: "Travel with a crew" },
       { label: "Corporate Tours", href: "/corporate-tours", description: "Offsites & incentive travel" },
-    ],
-  },
-  {
-    label: "Sacred Journeys",
-    href: "/umrah",
-    children: [
       { label: "Umrah Packages", href: "/umrah", description: "Economy to luxury departures" },
       { label: "Hajj Packages", href: "/hajj", description: "Guided, fully-managed Hajj" },
       { label: "Visa Services", href: "/visa-services", description: "Documentation, handled" },
@@ -65,8 +59,6 @@ export const footerLinks = {
     { label: "Honeymoon Packages", href: "/honeymoon" },
     { label: "Group Tours", href: "/group-tours" },
     { label: "Corporate Tours", href: "/corporate-tours" },
-  ],
-  sacred: [
     { label: "Umrah Packages", href: "/umrah" },
     { label: "Hajj Packages", href: "/hajj" },
     { label: "Visa Services", href: "/visa-services" },

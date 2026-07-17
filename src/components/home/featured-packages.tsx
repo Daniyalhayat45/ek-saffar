@@ -1,17 +1,11 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { packages } from "@/data/packages";
-import { PackageCard } from "@/components/shared/package-card";
-import { cn } from "@/lib/utils";
+import { getPackages } from "@/db/queries";
+import { FeaturedPackagesTabs } from "@/components/home/featured-packages-tabs";
 
-const tabs = ["All", "Family", "Honeymoon", "Group", "Corporate", "Solo"] as const;
-
-export function FeaturedPackages() {
-  const [tab, setTab] = useState<(typeof tabs)[number]>("All");
-  const filtered = (tab === "All" ? packages : packages.filter((p) => p.category === tab)).slice(0, 6);
+export async function FeaturedPackages() {
+  const all = await getPackages();
+  if (all.length === 0) return null;
 
   return (
     <section className="bg-basecamp py-24">
@@ -28,28 +22,7 @@ export function FeaturedPackages() {
           </Link>
         </div>
 
-        <div className="mt-8 flex flex-wrap gap-2">
-          {tabs.map((t) => (
-            <button
-              key={t}
-              onClick={() => setTab(t)}
-              className={cn(
-                "rounded-full border px-4 py-2 text-sm font-medium transition-colors",
-                tab === t
-                  ? "border-orange bg-orange text-basecamp"
-                  : "border-parchment/15 text-fog hover:border-orange/40 hover:text-parchment"
-              )}
-            >
-              {t}
-            </button>
-          ))}
-        </div>
-
-        <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((pkg) => (
-            <PackageCard key={pkg.slug} pkg={pkg} />
-          ))}
-        </div>
+        <FeaturedPackagesTabs packages={all} />
       </div>
     </section>
   );

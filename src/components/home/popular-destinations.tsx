@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { destinations } from "@/data/destinations";
+import { getDestinations } from "@/db/queries";
 import { DestinationCard } from "@/components/shared/destination-card";
 
-export function PopularDestinations() {
-  const featured = destinations.slice(0, 8);
+export async function PopularDestinations() {
+  const all = await getDestinations();
+  const featured = all.slice(0, 8);
+  if (featured.length === 0) return null;
   return (
     <section className="bg-basecamp py-24">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">

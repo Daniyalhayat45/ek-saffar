@@ -1,6 +1,34 @@
-import { Testimonial, BlogPost, FAQ } from "@/types/travel";
+// Local types for this static fallback data — intentionally decoupled from the
+// database-derived types in @/types/travel, since testimonials/blog/FAQs are
+// not yet migrated to the database (packages and destinations are).
+export type StaticTestimonial = {
+  id: string;
+  name: string;
+  location: string;
+  avatar: string;
+  rating: number;
+  quote: string;
+  trip: string;
+};
 
-export const testimonials: Testimonial[] = [
+export type StaticBlogPost = {
+  slug: string;
+  title: string;
+  excerpt: string;
+  category: string;
+  image: string;
+  author: string;
+  date: string;
+  readMinutes: number;
+};
+
+export type StaticFAQ = {
+  question: string;
+  answer: string;
+  category?: string;
+};
+
+export const testimonials: StaticTestimonial[] = [
   {
     id: "t1",
     name: "Ayesha Raza",
@@ -93,7 +121,7 @@ export const testimonials: Testimonial[] = [
   },
 ];
 
-export const blogPosts: BlogPost[] = [
+export const blogPosts: StaticBlogPost[] = [
   {
     slug: "first-time-umrah-checklist",
     title: "First-Time Umrah: A Complete Packing & Prep Checklist",
@@ -162,7 +190,7 @@ export const blogPosts: BlogPost[] = [
   },
 ];
 
-export const faqs: FAQ[] = [
+export const faqs: StaticFAQ[] = [
   {
     question: "How far in advance should I book a tour package?",
     answer:

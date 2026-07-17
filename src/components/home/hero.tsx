@@ -5,10 +5,10 @@ import { MapPin, Calendar, Users, Search } from "lucide-react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { destinations } from "@/data/destinations";
+import { Destination } from "@/types/travel";
 import Link from "next/link";
 
-export function Hero() {
+export function Hero({ destinations }: { destinations: Destination[] }) {
   const router = useRouter();
   const [query, setQuery] = useState("");
 

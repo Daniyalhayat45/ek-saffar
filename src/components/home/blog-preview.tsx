@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { blogPosts } from "@/data/content";
+import { getBlogPosts } from "@/db/queries";
 
-export function BlogPreview() {
-  const posts = blogPosts.slice(0, 3);
+export async function BlogPreview() {
+  const all = await getBlogPosts();
+  const posts = all.slice(0, 3);
+  if (posts.length === 0) return null;
   return (
     <section className="bg-basecamp py-24">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">

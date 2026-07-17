@@ -1,13 +1,12 @@
 import Link from "next/link";
-import { Users, Heart, Briefcase, User, Mountain, Building2 } from "lucide-react";
+import { Users, Heart, Briefcase, User, Mountain } from "lucide-react";
 
 const categories = [
-  { label: "Family Holidays", icon: Users, href: "/packages?category=Family", count: "12 packages" },
-  { label: "Honeymoon", icon: Heart, href: "/honeymoon", count: "9 packages" },
-  { label: "Corporate Tours", icon: Briefcase, href: "/corporate-tours", count: "6 packages" },
-  { label: "Solo Travel", icon: User, href: "/packages?category=Solo", count: "7 packages" },
-  { label: "Group Tours", icon: Mountain, href: "/group-tours", count: "10 packages" },
-  { label: "Sacred Journeys", icon: Building2, href: "/umrah", count: "Umrah & Hajj" },
+  { label: "Family Holidays", icon: Users, href: "/packages?category=Family", count: "Family trips" },
+  { label: "Honeymoon", icon: Heart, href: "/honeymoon", count: "Romantic getaways" },
+  { label: "Corporate Tours", icon: Briefcase, href: "/corporate-tours", count: "Offsites" },
+  { label: "Solo Travel", icon: User, href: "/packages?category=Solo", count: "Independent trips" },
+  { label: "Group Tours", icon: Mountain, href: "/group-tours", count: "Travel together" },
 ];
 
 export function Categories() {
@@ -19,7 +18,7 @@ export function Categories() {
           Every trip, planned around who you&apos;re traveling with
         </h2>
 
-        <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+        <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
           {categories.map(({ label, icon: Icon, href, count }) => (
             <Link
               key={label}

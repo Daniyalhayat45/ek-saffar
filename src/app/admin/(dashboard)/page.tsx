@@ -1,28 +1,32 @@
 export const dynamic = "force-dynamic";
 
 import Link from "next/link";
-import { ClipboardList, Mail, Send, TrendingUp } from "lucide-react";
+import { ClipboardList, Mail, Send, TrendingUp, Package, MapPin } from "lucide-react";
 import { db } from "@/db";
-import { bookings, contactMessages, newsletterSubscribers } from "@/db/schema";
+import { bookings, contactMessages, newsletterSubscribers, packages, destinations } from "@/db/schema";
 import { sql } from "drizzle-orm";
 
 async function getStats() {
   try {
-    const [[bookingCount], [messageCount], [subscriberCount], recentBookings] = await Promise.all([
+    const [[bookingCount], [messageCount], [subscriberCount], [packageCount], [destinationCount], recentBookings] = await Promise.all([
       db.select({ count: sql<number>`count(*)::int` }).from(bookings),
       db.select({ count: sql<number>`count(*)::int` }).from(contactMessages),
       db.select({ count: sql<number>`count(*)::int` }).from(newsletterSubscribers),
+      db.select({ count: sql<number>`count(*)::int` }).from(packages),
+      db.select({ count: sql<number>`count(*)::int` }).from(destinations),
       db.select().from(bookings).orderBy(sql`${bookings.createdAt} desc`).limit(5),
     ]);
     return {
       bookingCount: bookingCount?.count ?? 0,
       messageCount: messageCount?.count ?? 0,
       subscriberCount: subscriberCount?.count ?? 0,
+      packageCount: packageCount?.count ?? 0,
+      destinationCount: destinationCount?.count ?? 0,
       recentBookings,
       dbConnected: true,
     };
   } catch {
-    return { bookingCount: 0, messageCount: 0, subscriberCount: 0, recentBookings: [], dbConnected: false };
+    return { bookingCount: 0, messageCount: 0, subscriberCount: 0, packageCount: 0, destinationCount: 0, recentBookings: [], dbConnected: false };
   }
 }
 
@@ -41,7 +45,9 @@ export default async function AdminOverviewPage() {
         </div>
       )}
 
-      <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+      <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+        <StatCard icon={Package} label="Packages" value={stats.packageCount} href="/admin/packages" />
+        <StatCard icon={MapPin} label="Destinations" value={stats.destinationCount} href="/admin/destinations" />
         <StatCard icon={ClipboardList} label="Booking inquiries" value={stats.bookingCount} href="/admin/bookings" />
         <StatCard icon={Mail} label="Contact messages" value={stats.messageCount} href="/admin/messages" />
         <StatCard icon={Send} label="Newsletter subscribers" value={stats.subscriberCount} href="/admin/newsletter" />

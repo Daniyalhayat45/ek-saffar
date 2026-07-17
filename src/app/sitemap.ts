@@ -1,8 +1,9 @@
 import { MetadataRoute } from "next";
-import { destinations } from "@/data/destinations";
-import { packages } from "@/data/packages";
+import { getDestinations, getPackages } from "@/db/queries";
 import { blogPosts } from "@/data/content";
 import { siteConfig } from "@/constants/site";
+
+export const dynamic = "force-dynamic";
 
 const staticRoutes = [
   "", "about", "contact", "destinations", "packages", "honeymoon", "group-tours",
@@ -10,8 +11,10 @@ const staticRoutes = [
   "testimonials", "faqs", "booking", "careers", "privacy-policy", "terms", "refund-policy",
 ];
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = siteConfig.url;
+  const [destinations, packages] = await Promise.all([getDestinations(), getPackages()]);
+
   const staticEntries = staticRoutes.map((route) => ({
     url: `${base}/${route}`,
     lastModified: new Date(),

@@ -9,7 +9,7 @@ export function Footer() {
   return (
     <footer className="border-t border-parchment/10 bg-basecamp-2">
       <div className="mx-auto max-w-7xl px-5 py-16 lg:px-8">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1.3fr]">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.3fr]">
           <div>
             <Link href="/" className="flex items-center gap-2.5">
               <Image src="/images/logo.png" alt={siteConfig.name} width={36} height={36} className="h-9 w-9" />
@@ -38,7 +38,6 @@ export function Footer() {
 
           <FooterCol title="Company" links={footerLinks.company} />
           <FooterCol title="Explore" links={footerLinks.explore} />
-          <FooterCol title="Sacred Journeys" links={footerLinks.sacred} />
 
           <div>
             <h4 className="font-display text-sm font-semibold uppercase tracking-wider text-parchment">Stay in the loop</h4>

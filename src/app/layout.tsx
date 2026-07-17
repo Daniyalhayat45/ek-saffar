@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Navbar } from "@/components/layout/navbar";
-import { Footer } from "@/components/layout/footer";
-import { WhatsAppButton } from "@/components/shared/whatsapp-button";
 import { siteConfig } from "@/constants/site";
 
 export const metadata: Metadata = {
@@ -47,12 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased">
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-        <WhatsAppButton />
-      </body>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }
